@@ -1,1 +1,24 @@
-<h1>hello world</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown内容展示</title>
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+</head>
+<body>
+    <div id="markdownContent">Markdown内容加载中...</div>
+    <script>
+        // Markdown文件的路径，如果文件和这个HTML在同一个仓库中，只需要更改为相对路径
+        const markdownPath = 'bioinformatics_scheme.md';
+
+        // 使用fetch API获取Markdown文件内容
+        fetch(markdownPath).then(response => response.text()).then(text => {
+            // 使用Showdown转换器将Markdown转换为HTML
+            const converter = new showdown.Converter();
+            const html = converter.makeHtml(text);
+            // 将转换后的HTML内容显示在页面上
+            document.getElementById('markdownContent').innerHTML = html;
+        });
+    </script>
+</body>
+</html>
