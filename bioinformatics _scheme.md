@@ -3,35 +3,41 @@
 
 ## 本学期生物信息学相关学习计划
 - Linux bash脚本编写    form 3/3 to 3/30  参考书《鸟哥的Linux私房菜 基础学习篇》  复习bash语言
-- 深度学习RNN初学       from 3/3 to 3/9    参考书《动手学深度学习 PyTorch版》     先配合GPT4看懂和在本地跑通书上的代码
-- Git                  from 3/3 to 3/17   参考书                               在Git bash终端上学习基本操作
+- 深度学习RNN初学       from 3/3 to 3/9    参考书《动手学深度学习 PyTorch版》     先配合GPT4看懂和在本地跑通书上的代码  完成
+- Git                  from 3/3 to 3/17   参考书                               在Git bash终端上学习基本操作         未完成
 - 生物信息学课程        every week         参考书《Bioinformatics Tutorial》     每周五及周末完成作业
 
 
-## SRT 
+## SRT time table
 > 项目预计为多组学与生物信息学手段癌症预测，主要负责一些RNA degradation score方面的探索
 > 项目学生报名阶段尚未启动
-- week2  数据预处理  将TEP2015 TEP2017 TEP2018 三个数据集的bedgraph文件使用现成python脚本，在bash流水线下批量转化为ks矩阵，每个数据集分别使用longest   transcript, exon1, RP-mRNA三种ref bed文件转化为三个ks矩阵                                                                                1/9
-- week2  数据预处理  将TEP2015和TEP2017的longest transcript数据在python pandas下去除空值过多的基因，然后配合相应label做成Pytorch Dataset
 
-## 第一堂课课程笔记
-> 第一节课其实没讲什么需要做笔记的东西
-> 作业要求“解释一下算法(algorithm)和模型(model)的区别”，但实际上第一节课也没讲这部分的内容
-算法（Algorithm）和模型（Model）是计算机科学和数据科学中两个基本但不同的概念。它们在定义和用途上有明显的区别。
 
-### 算法（Algorithm）
+### week2:
+- 将TEP2015 TEP2017 TEP2022 三个数据集的bedgraph文件使用现成python脚本，在bash流水线下批量转化为ks矩阵，每个数据集分别使用longest   transcript, exon1, RP-mRNA三种ref bed文件转化为三个ks矩阵
+- 将TEP2015和TEP2017的longest transcript数据在python pandas下去除空值过多的基因，然后配合相应label做成Pytorch Dataset
+- 填充baopengfei留下的ML相关信息线上表格
+- 重新评估exons和longest-transcript两个参考bed文件的正确性，给出新的转化脚本
+> 实际完成情况：
+> 限制于Cnode算力，只完成了2015和2017数据集的ks处理，获得了ks矩阵，处理过缺失值。为了保持机器学习超参数一致没有进行下一步的机器学习操作
+> 从baiyilan获得了正确的long_RNA.gtf到longest_transcript.gtf的转化脚本。经过评估，原先的exons.bed不全，原先的longest_transcript.bed条目正确，但是由于只包含完整转录本起止位点，无法用于剔除内含子的ks转换
+> 没有给出新的去除内含子的gtf转化脚本
+> 尝试改进了multiprocess.py的并行情况，但是没有实际效率改善
 
-算法是一系列定义明确的指令集合，用于解决特定的问题或执行特定的任务。算法的特点是具有普遍性，可以应用于各种数据集来解决相似的问题。它们是问题解决的步骤或方法，不依赖于特定的数据。算法的例子包括排序算法（如快速排序、归并排序）、搜索算法（如二分查找）等。算法的效率可以通过时间复杂度和空间复杂度来评估。
+### week3
+- 不再尝试从ref中去除内含子，从改变multiprocess.py出发，在计算CDF时使用exons计算然后合并，以消除内含子区域
+- 阅读和理解baiyilan先前留下的机器学习脚本
+- 填充baopengfei留下的ML相关信息线上表格
+- 初步根据mRIN值评估TEP2015和TEP2017数据集的batch effect
+> 实际完成情况：
+> 重写了multiprocess.py，使用gtf作为参考，使用transcriptid对exon进行分组，对同组exon进行长度合并
+> 完成了new_exon,new_transcript在2015数据集上的重跑
+> 写出了将bedgraph在RP-mRNA.bed参考下放缩为固定bins的python脚本，消除不同基因bedgraph长度不同的问题，作为1DCNN的输入
+> 由luhanbo在R上作图分析了2015和2017年RP-mRNA参考下和exon1参考下的batch effect，Welch Two Sample Ttest均显著，在视觉上高斯核拟合曲线较为接近
 
-### 模型（Model）
-
-模型是对现实世界过程或系统的数学表示，通常是为了描述这些过程或系统的行为或进行预测。在数据科学和机器学习中，模型通常指的是从数据中学习得到的特定结构，用于预测或分类。模型的创建涉及到算法，但模型本身是基于特定数据训练得到的，并且其性能通常依赖于数据的质量和量。模型的例子包括线性回归模型、神经网络等。模型的效能通常通过准确率、召回率等指标来评估。
-
-### 区别总结
-
-- **定义**：算法是解决问题的具体步骤和方法，而模型是对现实世界的抽象和数学表达。
-- **依赖性**：算法不依赖于特定的数据，它们是通用的解决方案。模型则是基于特定数据训练得到的，其性能依赖于数据。
-- **目的**：算法的目的是找到解决问题的方法。模型的目的通常是预测或解释数据。
-- **评估**：算法的效率通常通过时间和空间复杂度来衡量，而模型的效能则通过准确率、召回率等指标来评估。
-
-简而言之，算法是一套规则或步骤，用于解决问题或执行计算；模型是基于数据构建的，用于预测或分类的数学表示。算法可以用于构建模型，但它们在概念上是不同的。
+### week4
+- 在Cnode上跑完2017的transcript数据。分析去除内含子前后transcript参考下mRIN的相关性
+- 分析已有的2015和2017数据集ksmat和mRIM数据，根据batch作图使用KS检验分析batch effect；尝试分析样本在四种ref下的TPM数据，用于进行batch effect对比
+- 分析已有的2015和2017数据集上的NC样本和CANCER样本差异，使用mRIN值在四种ref下进行t-test，在RP-mRNA参考下进行2d PCA聚类分析
+- 完善bedgraph_bins_plot脚本，仿照multiprocess的重写将内含子考虑在内
+> 已有的2015和2017数据集mRIM数据KS检验分析batch effect在三种参考下均显著，提示来自不同的分布；transcript 2017还没有跑完
