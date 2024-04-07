@@ -40,4 +40,24 @@
 - 分析已有的2015和2017数据集ksmat和mRIM数据，根据batch作图使用KS检验分析batch effect；尝试分析样本在四种ref下的TPM数据，用于进行batch effect对比
 - 分析已有的2015和2017数据集上的NC样本和CANCER样本差异，使用mRIN值在四种ref下进行t-test，在RP-mRNA参考下进行2d PCA聚类分析
 - 完善bedgraph_bins_plot脚本，仿照multiprocess的重写将内含子考虑在内
-> 已有的2015和2017数据集mRIM数据KS检验分析batch effect在三种参考下均显著，提示来自不同的分布；transcript 2017还没有跑完
+> 已有的2015和2017数据集mRIM数据KS检验分析batch effect在四种参考下均显著，提示来自不同的分布；
+> 去除内含子后的transcript与原transcript的mRIN相关性很小
+> 2015和2017两个数据集比较，多种参考下得到的mRIN的差异显著性全部相反
+
+### week5
+- 只使用每个数据集中的nc进行batch effect分析
+- 对RP-mRNA也进行去除内含子分析，包括batch effect分析和nc-cancer之间的t检验
+- 跑完2022的RPmRNA去除或不去出introns的分析
+- 完成bedgraph_plot的python脚本，完成训练使用的pytorch脚本
+> 对于RP基因，2015，2017，2022三个数据集之间batch effect的比较发现2015并没有出现显著的偏移，反而是2022偏移较大。没有单独使用nc分析
+> 2022数据集RP无论是否去除内含子在nc-cancer之间都不显著；2015和2017数据集去除内含子的RP均显著，而且与不去除的趋势相反，而且2015和2017之间趋势也相反
+> 2015，2017，2022的RP去除内含子与RPgene相关性很高
+> 完成bedgraph_plot脚本
+
+### week6
+> 完成了bedgraph_100bins_plot.py的脚本迁移，从本地移动到cnode，加入了参数化调用；完成了调用bedgraph_100bins_plot.py的bash脚本
+
+### week7
+- 使用nc对2015，2017，2022进行batch effect分析，不再使用高斯核曲线画图，使用直方图或者箱线图
+- 使用baiyilan的single机器学习脚本对已有的2015，2017的transcript，transcript_rmintrons, exon1, Rpgene, RpmRNA进行学习，2022只是用Rpgene, RpmRNA。进行两轮五折交叉验证，不进行cross验证
+- 跑完2015，2017，2022的RPgene和RPmRNA bedgraph100bins结果，进行pytorch学习
