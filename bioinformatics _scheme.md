@@ -60,4 +60,5 @@
 ### week7
 - 使用nc对2015，2017，2022进行batch effect分析，不再使用高斯核曲线画图，使用直方图或者箱线图
 - 使用baiyilan的single机器学习脚本对已有的2015，2017的transcript，transcript_rmintrons, exon1, Rpgene, RpmRNA进行学习，2022只是用Rpgene, RpmRNA。进行两轮五折交叉验证，不进行cross验证
-- 跑完2015，2017，2022的RPgene和RPmRNA bedgraph100bins结果，进行pytorch学习
+- 跑完2015，2017，2022的RPgene和RPmRNA bedgraph100bins结果，第一列为样本名，此后每一列是一个bin。使用label中的样本名进行挑选，进行pytorch学习
+- 跑通baiyilan的机器学习脚本
