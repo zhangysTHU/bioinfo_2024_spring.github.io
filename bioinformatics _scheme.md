@@ -62,3 +62,11 @@
 - 使用baiyilan的single机器学习脚本对已有的2015，2017的transcript，transcript_rmintrons, exon1, Rpgene, RpmRNA进行学习，2022只是用Rpgene, RpmRNA。进行两轮五折交叉验证，不进行cross验证
 - 跑完2015，2017，2022的RPgene和RPmRNA bedgraph100bins结果，第一列为样本名，此后每一列是一个bin。使用label中的样本名进行挑选，进行pytorch学习
 - 跑通baiyilan的机器学习脚本
+> 机器学习的model_early跑通，并且在KNN LR RF SVM XGBoost上试验了TEP2015和TEP2017的RPgene和RPmRNA数据。2015上RPmRNA性能明显更低，2017上相仿且2017稍高
+> 2015，2017，2022的RPgene和RPmRNA bedgraph100bins深度学习效果很差，学习会在几个epoch后进入平台，loss和accuracy都不变或略微波动。
+> 只是用三个数据集的nc画图，batch effect很小，在t检验下甚至不显著，去除内含子在大多数数据集和参考下会进一步减小batch；
+
+### week8
+- 学习跑一下TEP2015,2017,2022的TPM数据，看看nc下是不是也没有了batch effect
+- 可能100个bins信息实在太少，或许可以换成1000或10000尝试，用更激进的卷积策略以减少层数（也可以考虑resnet）
+- 或许可以了解一下transfromer
