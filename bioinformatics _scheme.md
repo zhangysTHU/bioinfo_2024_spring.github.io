@@ -1,4 +1,4 @@
-> 本文档用于提交清华大学生物信息学课程（2024春）作业，同时记录本学期生物信息学学习计划或课堂笔记
+> 本文档用于记录本学期生物信息学学习计划或课堂笔记
 
 
 ## 本学期生物信息学相关学习计划
@@ -10,7 +10,12 @@
 
 ## SRT time table
 > 项目预计为多组学与生物信息学手段癌症预测，主要负责一些RNA degradation score方面的探索
-> 项目学生报名阶段尚未启动
+> 项目学生报名已完成
+> 2024年3月底已完成TEP2015,2017数据集的genes，longest_transcript, exons, exon1, RPgene, RPmRNA; 完成了TEP2022的RPgene，RPmRNA
+> 2024年3月底已完成已有数据集和特征下的cancer nc 的t检验
+> 2024年4月初完成全部样本下和nc样本下的batch effect验证
+- 2024年4月底完成所有基于RF,LR, KNN, SVM, XGBoost的组内验证和交叉验证
+- 2024年4月底完成基于放缩后的bedgraph 100bins，1000bins，end or start nuclitide 
 
 
 ### week2:
