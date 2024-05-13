@@ -76,3 +76,24 @@
 - 可能100个bins信息实在太少，或许可以换成1000或10000尝试，用更激进的卷积策略以减少层数（也可以考虑resnet）；做完2015的组内验证；做完2015，2017，2022的交叉验证
 - 或许可以了解一下transfromer
 - 做完2015和2017所有特征的常规机器学习，并进行cross验证；与2022 cross的话先只考虑RPgene和RPmRNA
+> 没有重新跑TPM数据，目前已有的TPM只含2015和2017
+> 在不改变CNN模型的情况下，完成了2015，2017，2022之间的交叉验证，交叉验证仍然只含RPmRNA和RPgene的数据，交叉验证的训练集永远是较大数据集。出乎意料的是，交叉验证得到的各个性能要远优于组内验证，特别是TEP2017到TEP2015
+> 完成了所有常规机器学习，2022只考虑了RPgene和RPmRNA，feature selection只选取了训练集与label的ANOVA分析的前1000个features
+
+### week9
+- 整理之前的batch effect数据，统一使用KS检验和d score，三数据集使用ANOVA和平均d score
+- 整理之前的mRIN t检验数据，统一使用非参数t检验。使用的参考为genes，longest_transcripts, exon1, RPgene, RPmRNA
+- 尝试将100bins脚本改为1000bins，gtf参考从RP改为56407个gene
+- 补全2022的ks数据
+> 完成了前期数据整理，提交SRT中期报告。
+> 未完成脚本修改
+
+### week11
+- 尝试将100bins脚本改为1000bins，gtf参考从RP改为56407个gene
+- 补全2022的ks数据
+> 实验表明在当前去除内含子的1000bins算法下，使用56407genes作为参考所需时间为RP参考的几百倍，在当前算力下不具备可行性。
+> 完成了TEP2022 genes和exon1的计算
+
+### week12
+- 尝试使用TCGA数据
+- 测试不去除内含子在56407genes参考下的单样本100bins和1000bins处理速度；尝试截断start-end前500或前1000核苷酸，所谓CNN输入，测试去除内含子和不去除内含子的单样本处理速度
