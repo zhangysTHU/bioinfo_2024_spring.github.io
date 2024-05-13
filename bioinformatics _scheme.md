@@ -1,13 +1,6 @@
 > 本文档用于记录本学期生物信息学学习计划或课堂笔记
 
 
-## 本学期生物信息学相关学习计划
-- Linux bash脚本编写    form 3/3 to 3/30  参考书《鸟哥的Linux私房菜 基础学习篇》  复习bash语言
-- 深度学习RNN初学       from 3/3 to 3/9    参考书《动手学深度学习 PyTorch版》     先配合GPT4看懂和在本地跑通书上的代码  完成
-- Git                  from 3/3 to 3/17   参考书                               在Git bash终端上学习基本操作         未完成
-- 生物信息学课程        every week         参考书《Bioinformatics Tutorial》     每周五及周末完成作业
-
-
 ## SRT time table
 > 项目预计为多组学与生物信息学手段癌症预测，主要负责一些RNA degradation score方面的探索
 > 项目学生报名已完成
@@ -97,3 +90,4 @@
 ### week12
 - 尝试使用TCGA数据
 - 测试不去除内含子在56407genes参考下的单样本100bins和1000bins处理速度；尝试截断start-end前500或前1000核苷酸，所谓CNN输入，测试去除内含子和不去除内含子的单样本处理速度
+- 考虑一下去除non-cancer组中的有症状对照组，让negative组更纯一些
