@@ -1,6 +1,6 @@
 > 本文档用于记录2024年生物信息学学习计划或SRT计划，本文档同时挂载于github pages
 
-## SRT milestones table（2024春）
+## SRT milestones table and conduction（2024春）
 > 项目预计为多组学与生物信息学手段癌症预测，主要负责一些RNA degradation score方面的探索
 > 项目学生报名已完成
 > 2024年3月底已完成TEP2015,2017数据集的genes，longest_transcript, exons, exon1, RPgene, RPmRNA; 完成了TEP2022的RPgene，RPmRNA
@@ -104,6 +104,16 @@
 > 完成在TEP2015,2017,2022数据集上基于gene，longest_transcript，exon1，RPgene的1DCNN学习，结果与mKS相同组的五种模型结果合并，使用热图展示F1 score和AUC。数据处理方法为di-clips（1000）
 > 对TEP2015,2017,2022的NC数据，使用RPgene作为参考基因，通过KS检验比较TPM和mRIN之间的批次效应显著程度
 
+### week15-week18：期末考试与夏季学期课程
 ---
 ## SRT milestones table（秋）
+1. 上学期的cfomics任务继续完善基于mKS的调参，与刘匼等师兄完善特征筛选和机器学习流程
+2. Find a novel computational feature better than mRIN; 考虑从RNA表达数据出发，从degradation或secretion的生物学意义进行计算
+    - 考虑使用机器学习的方式从DFPKM模拟一种degradation score，仿照
+    - 考虑仿照2022训练一种从序列/表达量出发判断RNA亚细胞定位或外泌体包装情况的模型 
+> 重新开一个新的SRT项目？结掉cfomics的SRT？
+- before week1：新feature的可行性调研
+- 9月：部分TCGA数据预处理，计算mKS值和TPM值；TEP mKS数据的数据分割尝试和调参尝试
+- 10月：TEP mKS数据的基因选择（feature selection）尝试
+- 期中及后续：尝试以RNA seq结果为输入，模拟PARE-seq测序得到的降解DPKM数据；或许可以尝试transformer进行回归学习
 
