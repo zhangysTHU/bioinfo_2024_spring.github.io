@@ -1,7 +1,6 @@
-> 本文档用于记录本学期生物信息学学习计划或课堂笔记
+> 本文档用于记录2024年生物信息学学习计划或SRT计划，本文档同时挂载于github pages
 
-
-## SRT time table
+## SRT milestones table（2024春）
 > 项目预计为多组学与生物信息学手段癌症预测，主要负责一些RNA degradation score方面的探索
 > 项目学生报名已完成
 > 2024年3月底已完成TEP2015,2017数据集的genes，longest_transcript, exons, exon1, RPgene, RPmRNA; 完成了TEP2022的RPgene，RPmRNA
@@ -104,3 +103,7 @@
 > 完成基于个各数据集TPM矩阵的特征与筛选，以减少1DCNN数据预处理时的特征筛选工作量
 > 完成在TEP2015,2017,2022数据集上基于gene，longest_transcript，exon1，RPgene的1DCNN学习，结果与mKS相同组的五种模型结果合并，使用热图展示F1 score和AUC。数据处理方法为di-clips（1000）
 > 对TEP2015,2017,2022的NC数据，使用RPgene作为参考基因，通过KS检验比较TPM和mRIN之间的批次效应显著程度
+
+---
+## SRT milestones table（秋）
+
