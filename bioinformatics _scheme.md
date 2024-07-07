@@ -91,3 +91,16 @@
 - 尝试使用TCGA数据
 - 测试不去除内含子在56407genes参考下的单样本100bins和1000bins处理速度；尝试截断start-end前500或前1000核苷酸，所谓CNN输入，测试去除内含子和不去除内含子的单样本处理速度
 - 考虑一下去除non-cancer组中的有症状对照组，让negative组更纯一些
+> 完成了RPgene和RPmRNA参考上的di-clips（500+500）和1000bins文件的准备
+> 仍使用混合的症状对照与NC共同作为阴性组
+
+### week13
+> 完成在TEP2015,2017,2022数据集上基于RPgene和RPmRNA参考的两种格式的1DCNN学习，结果与mKS相同组的五种模型结果合并，使用热图展示F1 score和AUC
+> 完成TEP2015，2017，2022数据集的TPM计算
+> 部分TCGA样本的数据预处理完成
+> 完成基于gene，longest_transcript，exon1，RPgene的TPM的五种模型的机器学习
+> 
+### week14
+> 完成基于个各数据集TPM矩阵的特征与筛选，以减少1DCNN数据预处理时的特征筛选工作量
+> 完成在TEP2015,2017,2022数据集上基于gene，longest_transcript，exon1，RPgene的1DCNN学习，结果与mKS相同组的五种模型结果合并，使用热图展示F1 score和AUC。数据处理方法为di-clips（1000）
+> 对TEP2015,2017,2022的NC数据，使用RPgene作为参考基因，通过KS检验比较TPM和mRIN之间的批次效应显著程度
