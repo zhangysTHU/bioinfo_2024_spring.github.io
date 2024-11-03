@@ -117,3 +117,19 @@
 - 10月：TEP mKS数据的基因选择（feature selection）尝试
 - 期中及后续：尝试以RNA seq结果为输入，模拟PARE-seq测序得到的降解DPKM数据；或许可以尝试transformer进行回归学习
 
+  ### week7
+> 学习了自注意力机制的基本算法和在pytorch上的部分市县，了解了几个使用自注意力机制的经典模型架构，如bert，transformer，alphafold
+> 完成了对RNAlight全部代码的复现
+> 完成了对bert-chinese-base-claasificater的微调训练复现
+
+### week8
+> 使用exoRbase构建存在于EV中的longRNA数据集；使用来源于RNAlight文章的细胞核/细胞质定位longRNA定义unEV定位RNA（同时出现的RNA分类到EV中）
+> 使用RNAlight提供的LR和SVM调参策略对lncRNA和mRNA进行了ev-unev分类，AUC仅有0.61-0.63，原达不到RNAlight文章中核质定位分类AUC0.75的水平
+- 额外计划使用bert分类对上述序列进行尝试，可以先从RNAlight文章中提供的核质定位数据开始。bert模型架构参考DNAbert或者Enformer
+
+### week9
+- 阅读小RNA定位的综述
+以下构建根据实验室已有数据三选一：
+- 利用实验室在20种细胞组分中测序的数据，构建一个血浆-血小板-EV定位的sRNA数据集
+- 额外构建一个细胞亚定位sRNA的数据集，优先利用RNAlocate数据库构建。可以优先考虑miRNA
+- 调研使用DNAbert模型或者exoGRU模型对RNAlight文章工作提升的可能性
