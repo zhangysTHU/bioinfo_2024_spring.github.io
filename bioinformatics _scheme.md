@@ -136,9 +136,8 @@
 > 调研与RNA subcelluar location相关的综述文章和相应ML预测文章，目前研究以long RNA和microRNA为主，数据集主要使用RNAlocate导出
 
 ### week10
-- 获取一个tsRNA列表（bed文件？），随后从encode来源的GSEGSE24565 seq数据集产生一份带有亚定位标记的tsRNA数据集
-- 从RNAlocate构建一个piRNA数据集，考虑优先去除一部分数量过于冗余的exosome定位piRNA
-- 从实验室SLE数据集的血浆、血小板、外泌体三个组分中生成一份tsRNA数据集
-- 使用LR对试验性数据集进行多分类实验，使用RNAlight的k-mer frequency embedding策略
-- 尝试将exoGRU的sRNA embedding策略分离出来，将来应用到tsRNA和piRNA中
+- Monday: 尝试将exoGRU的sRNA embedding策略分离出来，将来应用到tsRNA和piRNA中;获取一个tsRNA列表（bed文件？）
+- Tuesday:从RNAlocate构建一个piRNA数据集，考虑优先去除一部分数量过于冗余的exosome定位piRNA,使用LR对试验性数据集进行多分类实验(优先使用exoGRU的编码策略，否则使用RNAlight的k-mer frequency embedding策略)
+- Wednesday：从encode来源的GSEGSE24565 seq数据集产生一份带有亚定位标记的tsRNA数据集
+- Thursday：从实验室SLE数据集的血浆、血小板、外泌体三个组分中生成一份tsRNA数据集
 
