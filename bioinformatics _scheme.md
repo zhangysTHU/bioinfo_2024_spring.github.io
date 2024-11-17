@@ -140,4 +140,8 @@
 - Tuesday:从RNAlocate构建一个piRNA数据集，考虑优先去除一部分数量过于冗余的exosome定位piRNA,使用LR对试验性数据集进行多分类实验(优先使用exoGRU的编码策略，否则使用RNAlight的k-mer frequency embedding策略)
 - Wednesday：从encode来源的GSEGSE24565 seq数据集产生一份带有亚定位标记的tsRNA数据集
 - Thursday：从实验室SLE数据集的血浆、血小板、外泌体三个组分中生成一份tsRNA数据集
+> exoGRU封装较为严密，目前脚本解析进行约40%
+> 实现了从RNAlocate生成两种VE中的piRNA数据集，LR上实验效果不佳（AUC=0.53），很可能是因为piRNA大多定位可信度不足
+> 从RNAlocate生成了部分可用的circRNA数据集，尚未匹配序列
+> 从encode来源的GSEGSE24565数据集使用了A594 nuclues和cytosol两个样本，使用gtf文件提供sRNA基因区域表达值，使用来源于TCGA的bed文件提供sRNA序列和基因区段
 
