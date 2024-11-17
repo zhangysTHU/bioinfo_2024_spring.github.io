@@ -145,3 +145,10 @@
 > 从RNAlocate生成了部分可用的circRNA数据集，尚未匹配序列
 > 从encode来源的GSEGSE24565数据集使用了A594 nuclues和cytosol两个样本，使用gtf文件提供sRNA基因区域表达值，使用来源于TCGA的bed文件提供sRNA序列和基因区段
 
+### week11
+- 完成对exoGRU的脚本解析，着重使用文件预处理步骤；模型部分整体保留用作微调和格式化数据集
+- 使用GSEGSE24565数据集使用了A594 nuclues和cytosol两个样本的gtf文件完成两个样本中基因FPKM的比较，取logFC>1的为核/质定位基因（参考RNAlight）
+- 或使用GSEGSE24565的fasta文件向全基因组mapping从头计算feature counts，仿exoGRU的文件预处理
+- 仿exoGRU的文件预处理，从GSEGSE24565数据集A594两个样本中生成Nuc/Cyt基因数据集，使用LR测试
+- 完成circ/sn/sno RNAlocte数据集，用LR测试
+
