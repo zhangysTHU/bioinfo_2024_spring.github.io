@@ -151,4 +151,9 @@
 - 或使用GSEGSE24565的fasta文件向全基因组mapping从头计算feature counts，仿exoGRU的文件预处理
 - 仿exoGRU的文件预处理，从GSEGSE24565数据集A594两个样本中生成Nuc/Cyt基因数据集，使用LR测试
 - 完成circ/sn/sno RNAlocte数据集，用LR测试
+> 经过数据筛选，仅
+
+### week12
+- 构建cfpeak环境
+- 下载A549细胞系的4个样本的fastaq文件，通过cfpeak寻找peak，根据peak位点构建参考bed文件
 
