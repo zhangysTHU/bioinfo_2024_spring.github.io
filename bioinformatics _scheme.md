@@ -156,4 +156,17 @@
 ### week12
 - 构建cfpeak环境
 - 下载A549细胞系的4个样本的fastaq文件，通过cfpeak寻找peak，根据peak位点构建参考bed文件
+- 完成circRNA数据集构建和分类
+> cfPEAK环境构建不成功，可能源于mamba forge和conda版本于开发者不一致
+> 根据A549样本的bedRNAElement文件构建的peak（进筛选tRNA相关的peak）样本机器学习效果不佳
+> circRNA数据集构建完成，共有EV、核、质三个标签
 
+ ### week13
+- 构建cfpeak环境
+- 下载A549细胞系的4个样本的fastaq文件，通过cfpeak寻找peak，根据peak位点构建参考bed文件
+- 通过比对alkb-nomal seq的peaks区别样本（包含coverage，sequence），以及来源于RMBase v2.0的序列信息，已经完成的peak分类数据集构建，进行ML测试
+
+### week14
+- 将8个alkb样本合并在一起，可视化其covergae和modification的分布
+- 构建一个多block行列注意力的模型对8个alkb样本进行训练，并进行模型上的消融分析
+- 
