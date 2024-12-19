@@ -169,4 +169,12 @@
 ### week14
 - 将8个alkb样本合并在一起，可视化其covergae和modification的分布
 - 构建一个多block行列注意力的模型对8个alkb样本进行训练，并进行模型上的消融分析
-- 
+- 处理点括号二级结构，仍然使用独热编码
+> 完成了在所有样本上的11features训练测试，包括LR，SVM，RF， lightGBM，单层列注意力模型
+> 完成了在LR和SVM上对现有feature的消融
+> 更复杂的attention模型在老数据集上没有展现出性能提升
+
+### week15
+- 在DL上实现五折交叉验证；使用cross attention模型进行训练；在DL数据集上实现时序信息加入；产生0.1test set, 0.2 val set, 0.7 train set上训练
+- 将二级结构加入DL训练中
+- 在DL中进行feature消融
